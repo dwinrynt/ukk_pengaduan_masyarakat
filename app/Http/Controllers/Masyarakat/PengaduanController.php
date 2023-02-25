@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Masyarakat;
 
-use App\Models\Masyarakat;
+use App\Models\Pengaduan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class MasyarakatController extends Controller
+class PengaduanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class MasyarakatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Masyarakat  $masyarakat
+     * @param  \App\Models\Pengaduan  $pengaduan
      * @return \Illuminate\Http\Response
      */
-    public function show(Masyarakat $masyarakat)
+    public function show(Pengaduan $pengaduan)
     {
         //
     }
@@ -52,10 +53,10 @@ class MasyarakatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Masyarakat  $masyarakat
+     * @param  \App\Models\Pengaduan  $pengaduan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Masyarakat $masyarakat)
+    public function edit(Pengaduan $pengaduan)
     {
         //
     }
@@ -64,10 +65,10 @@ class MasyarakatController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Masyarakat  $masyarakat
+     * @param  \App\Models\Pengaduan  $pengaduan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Masyarakat $masyarakat)
+    public function update(Request $request, Pengaduan $pengaduan)
     {
         //
     }
@@ -75,10 +76,10 @@ class MasyarakatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Masyarakat  $masyarakat
+     * @param  \App\Models\Pengaduan  $pengaduan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Masyarakat $masyarakat)
+    public function destroy(Pengaduan $pengaduan)
     {
         //
     }

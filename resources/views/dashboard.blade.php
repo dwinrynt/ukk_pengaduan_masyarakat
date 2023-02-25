@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
     @if (auth()->user()->role == 'super admin')
-        @include('dashboard.super_admin')
+        @include('super_admin.dashboard')
     @elseif (auth()->user()->role == 'admin')
-        @include('dashboard.admin')
+        @include('admin.dashboard')
     @elseif (auth()->user()->role == 'petugas')
-        @include('dashboard.petugas')
+        @include('petugas.dashboard')
     @elseif (auth()->user()->role == 'masyarakat')
-        @include('dashboard.masyarakat')
+        @include('masyarakat.dashboard')
     @endif
 @endsection
