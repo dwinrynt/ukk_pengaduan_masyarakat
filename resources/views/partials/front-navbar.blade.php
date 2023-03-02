@@ -5,11 +5,12 @@
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-      <span class="icon-menu"></span>
+      <span class="icon-menu text-white"></span>
     </button>
     <ul class="navbar-nav navbar-nav-right">
+      <li class="d-flex align-items-center text-white mr-1">{{ auth()->user()->name }}</li>
       <li class="nav-item nav-profile dropdown">
-        @if (auth()->user()->role == 'super admin')
+        @if (auth()->user()->role == 'super_admin')
             <img src="{{ asset('img/super_adminDefault.svg') }}" alt="">
         {{-- admin --}}
         @elseif (auth()->user()->role == 'admin')
@@ -57,13 +58,10 @@
             @endif
           @endif
         @endif
-        {{-- <a class="nav-link dropdown-toggle" href="#" id="profileDropdown">
-          <img src="{{ asset('img/profilDefaultt.png') }}" alt="profile"/>
-        </a> --}}
-        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-          <form action="{{ route('logout') }}" class="dropdown-item" method="POST">
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown p-0" aria-labelledby="profileDropdown" style="height: 3rem; margin-right: -3rem">
+          <form action="{{ route('logout') }}" class="dropdown-item p-0" method="POST">
             @csrf
-            <button style="border: none; background-color: transparent">
+            <button style="border: none; background-color: transparent; width: 100%; height: 3rem;">
               <i class="ti-power-off text-primary"></i>
               Logout</button>
           </form>
@@ -71,12 +69,12 @@
       </li>
       <li class="nav-item nav-settings d-none d-lg-flex" data-toggle="dropdown">
         <a class="nav-link" href="#">
-          <i class="icon-ellipsis"></i>
+          <i class="icon-ellipsis text-white"></i>
         </a>
       </li>
     </ul>
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-      <span class="icon-menu"></span>
+      <span class="icon-menu text-white"></span>
     </button>
   </div>
 </nav>

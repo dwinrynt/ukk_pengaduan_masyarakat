@@ -1,6 +1,6 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
+<nav class="sidebar sidebar-offcanvas overflow-auto" id="sidebar">
     <ul class="nav">
-      @if (auth()->user()->role == 'super admin')
+      @if (auth()->user()->role == 'super_admin')
         @include('partials.role.super_admin') 
       @elseif (auth()->user()->role == 'admin')
         @include('partials.role.admin')      

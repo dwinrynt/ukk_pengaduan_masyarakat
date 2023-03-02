@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Masyarakat;
 
-use App\Models\Pengaduan;
+use App\Models\{
+    Kategori,
+    Pengaduan,
+};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +18,8 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        //
+        $pengaduan = Pengaduan::where('masyarakat_id', auth()->user()->masyarakat->id)->get();
+        return view('masyarakat.pengaduan.index', compact('pengaduan'));
     }
 
     /**
@@ -25,7 +29,8 @@ class PengaduanController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = Kategori::all();
+        return view('masyarakat.pengaduan.form', compact('kategori'));
     }
 
     /**
@@ -36,7 +41,22 @@ class PengaduanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'masyarakat_id'     => 'required',
+            'kategori_id'       => 'required',
+            'laporan'           => 'required',
+            'path_foto'         => 'image|mimes:png,jpg,jpeg',
+            'tanggal_pengaduan' => 'required'
+        ]);
+
+        $attributes = $request->all();
+        if ($request->path_foto) {
+            $path_foto = $request->file('path_foto')->store('path_foto');
+            $attributes['path_foto'] = $path_foto;
+        }
+
+        $pengaduan = Pengaduan::create($attributes);
+        return redirect()->route('pengaduan.index')->with('success', 'Pengaduan has been created!');
     }
 
     /**
@@ -45,9 +65,10 @@ class PengaduanController extends Controller
      * @param  \App\Models\Pengaduan  $pengaduan
      * @return \Illuminate\Http\Response
      */
-    public function show(Pengaduan $pengaduan)
+    public function show($id)
     {
-        //
+        $pengaduan = Pengaduan::find($id);
+        return view('masyarakat.pengaduan.show', compact('pengaduan'));
     }
 
     /**
@@ -56,9 +77,11 @@ class PengaduanController extends Controller
      * @param  \App\Models\Pengaduan  $pengaduan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pengaduan $pengaduan)
+    public function edit($id)
     {
-        //
+        $kategori = Kategori::all();
+        $pengaduan = Pengaduan::find($id);
+        return view('masyarakat.pengaduan.form', compact('kategori', 'pengaduan'));
     }
 
     /**
@@ -68,9 +91,23 @@ class PengaduanController extends Controller
      * @param  \App\Models\Pengaduan  $pengaduan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pengaduan $pengaduan)
+    public function update(Request $request, $id)
     {
-        //
+        // dd($request);
+        $pengaduan = Pengaduan::find($id);
+        $attributes = $request->validate([
+            'kategori_id'     => 'required',
+            'laporan'           => 'required',
+            'tanggal_pengaduan' => 'required'
+        ]);
+        $attributes = $request->all();
+        if ($request->path_foto) {
+            $path_foto = $request->file('path_foto')->store('path_foto');
+            $attributes['path_foto'] = $path_foto;
+        }
+
+        $pengaduan->update($attributes);
+        return redirect()->route('pengaduan.index')->with('success', 'Pengaduan has been updated!');
     }
 
     /**
@@ -79,7 +116,7 @@ class PengaduanController extends Controller
      * @param  \App\Models\Pengaduan  $pengaduan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pengaduan $pengaduan)
+    public function destroy($id)
     {
         //
     }

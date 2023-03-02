@@ -27,6 +27,10 @@
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
         {{-- bootstrap --}}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        {{-- custom css --}}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {{-- fancybox --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
     </head>
     <body>
         <div class="container-scroller">
@@ -64,5 +68,7 @@
         <script src="{{ asset('skydash/js/dashboard.js') }}"></script>
         <script src="{{ asset('skydash/js/Chart.roundedBarCharts.js') }}"></script>
         <!-- End custom js for this page-->
+        {{-- fancybox --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     </body>
 </html>

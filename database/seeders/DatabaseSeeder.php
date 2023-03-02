@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'name'     => 'Super Admin',
             'email'    => 'super_admin@gmail.com',
             'password' => bcrypt('00000000'),
-            'role'     => 'super admin'
+            'role'     => 'super_admin'
         ]);
 
         Kategori::create([

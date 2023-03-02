@@ -3,6 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuperAdmin\{
     KategoriController,
+    PengawasController
+};
+
+use App\Http\Controllers\Petugas\{
+    ReviewPengaduanController
+};
+
+use App\Http\Controllers\Masyarakat\{
+    PengaduanController
 };
 
 /*
@@ -26,4 +35,20 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('/kategori', KategoriController::class);
+Route::middleware('role:super_admin')->group(function () {
+    Route::resource('/kategori', KategoriController::class);
+    Route::resource('/pengawas', PengawasController::class);
+});
+
+Route::middleware(['role:admin|petugas'])->group(function () {
+    Route::resource('/review-pengaduan', ReviewPengaduanController::class);
+});
+
+// Route::middleware('role:petugas')->group(function () {
+//     // Route::resource('/review-pengaduan', ReviewPengaduanController::class);
+// });
+
+Route::middleware('role:masyarakat')->group(function () {
+    Route::resource('/pengaduan', PengaduanController::class);
+});
+

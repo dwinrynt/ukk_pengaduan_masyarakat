@@ -13,7 +13,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-hover text-center">
-                    <thead class="bg-primary text-white">
+                    <thead class="text-white">
                         <tr>
                             <th>No</th>
                             <th>Nama Kategori</th>

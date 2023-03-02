@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    @if (auth()->user()->role == 'super admin')
+    @if (auth()->user()->role == 'super_admin')
         @include('super_admin.dashboard')
     @elseif (auth()->user()->role == 'admin')
         @include('admin.dashboard')

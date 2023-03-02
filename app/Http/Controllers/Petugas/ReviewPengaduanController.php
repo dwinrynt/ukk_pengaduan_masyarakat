@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Masyarakat;
+namespace App\Http\Controllers\Petugas;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\{
+    Pengaduan
+};
 
-class DashboardController extends Controller
+class ReviewPengaduanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $pengaduan = Pengaduan::all();
+        return view('petugas.review_pengaduan.index', compact('pengaduan'));
     }
 
     /**
@@ -24,7 +28,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -35,7 +39,7 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -46,7 +50,8 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+        $pengaduan = Pengaduan::find($id);
+        return view('petugas.review_pengaduan.show', compact('pengaduan'));
     }
 
     /**
@@ -57,7 +62,8 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pengaduan = Pengaduan::find($id);
+        return view('petugas.review_pengaduan.form', compact('pengaduan'));
     }
 
     /**
@@ -69,7 +75,16 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pengaduan = Pengaduan::find($id);
+        $attributes = $request->validate([
+            'tanggapan'           => 'required',
+            'tanggal_tanggapan' => 'required'
+        ]);
+        
+        $attributes = $request->all();
+
+        $pengaduan->update($attributes);
+        return redirect()->route('review-pengaduan.index')->with('success', 'Pengaduan has been updated!');
     }
 
     /**
@@ -80,6 +95,6 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort(404);
     }
 }
