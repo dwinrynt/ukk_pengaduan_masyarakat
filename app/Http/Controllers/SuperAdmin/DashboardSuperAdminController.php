@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Masyarakat;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class DashboardSuperAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        //
     }
 
     /**

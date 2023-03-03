@@ -32,6 +32,9 @@
                             </td>
                             <td>
                                 @switch($row->status)
+                                    @case($row->status == 'menunggu verifikasi')
+                                        <div class="btn btn-sm" style="background-color: #FFC0C0; color: #AC3131; font-weight: 700; border-radius: 5px;">{{ strtoupper($row->status) }}</div>
+                                        @break
                                     @case($row->status == 'proses')
                                         <div class="btn btn-sm" style="background-color: #0095ff4e; color: #1A3680; font-weight: 700; border-radius: 5px;">{{ strtoupper($row->status) }}</div>
                                         @break

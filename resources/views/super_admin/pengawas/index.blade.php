@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+    @if (session()->has('success'))
+    <div class="alert alert-success">
+        <span>{{ session()->get('success') }}</span>
+    </div>
+    @endif
     <div class="card">
         <div class="card-header bg-white d-flex justify-content-between">
             <h3 class="card-title">Pengawas</h3>
@@ -22,9 +27,14 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->nama_petugas }}</td>
-                            <td>{{ $row->email }}</td>
+                            <td>{{ $row->user->email }}</td>
                             <td>{{ $row->status }}</td>
-                            <td>
+                            <td class="d-flex justify-content-center gap-2">
+                                {{-- <form action="{{ route('pengawas.destroy', [$row->id]) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                    <button class="btn btn-sm btn-danger" style="border-radius: 5px;font-weight: 700; min-width: 5rem;">Delete</button>
+                                </form> --}}
                                 <a href="{{ route('pengawas.edit', [$row->id]) }}" class="btn btn-sm btn-primary" style="border-radius: 5px;font-weight: 700; min-width: 5rem;">Update</a>
                             </td>
                         </tr>

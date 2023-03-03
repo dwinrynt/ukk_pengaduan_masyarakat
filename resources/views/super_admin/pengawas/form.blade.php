@@ -23,8 +23,8 @@
                 <input type="number" class="form-control" name="telp" id="telp" value="{{ isset($pengawas) ? $pengawas->telp : old('telp') }}">
             </div>
             <div class="mb-3">
-                <label for="role" class="form-label">Level</label>
-                <select name="role" id="role" class="form-control">
+                <label for="status" class="form-label">Level</label>
+                <select name="status" id="status" class="form-control">
                     <option value="">Pilih Level</option>
                     <option value="admin">Admin</option>
                     <option value="petugas">Petugas</option>

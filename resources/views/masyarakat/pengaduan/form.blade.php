@@ -31,8 +31,8 @@
                         <input type="file" class="form-control" name="path_foto" id="path_foto" value="{{ isset($pengaduan) ? $pengaduan->path_foto : old('path_foto') }}">
                     @else
                         <div class="d-flex justify-content-between align-items-center gap-3">
-                            <a href="{{ asset('storage/' . $pengaduan->path_foto) }}" class="btn text-white col-lg" data-fancybox="gallery{{ $pengaduan->id }}" style="background-color: green; border-radius: 5px;">Lihat Gambar</a>
-                            <input type="file" class="form-control col-lg-10" name="path_foto" id="path_foto" value="{{ isset($pengaduan) ? $pengaduan->path_foto : old('path_foto') }}">
+                            <a href="{{ asset('storage/' . $pengaduan->path_foto) }}" class="btn text-white col-lg-2" data-fancybox="gallery{{ $pengaduan->id }}" style="background-color: green; border-radius: 5px;"><i class="bi bi-image"></i> Lihat Gambar</a>
+                            <input type="file" class="form-control col-lg" name="path_foto" id="path_foto" value="{{ isset($pengaduan) ? $pengaduan->path_foto : old('path_foto') }}">
                         </div>
                     @endif
                 </div>

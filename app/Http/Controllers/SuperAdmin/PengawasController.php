@@ -42,23 +42,23 @@ class PengawasController extends Controller
     {
         $attributes = $request->validate([
             'nama_petugas' => 'required',
-            'email' => 'required',
-            'telp'  => 'required|numeric',
-            'role'  => 'required'
+            'email'        => 'required',
+            'telp'         => 'required|numeric',
+            'status'       => 'required'
         ]);
 
         $user = User::create([
-            'name' => $request->nama_petugas,
-            'email' => $request->email,
+            'name'     => $request->nama_petugas,
+            'email'    => $request->email,
             'password' => bcrypt('00000000'),
-            'role'     => $request->role
+            'role'     => $request->status
         ]);
         
         $pengawas = Petugas::create([
-            'user_id' => $user->id,
+            'user_id'      => $user->id,
             'nama_petugas' => $request->nama_petugas,
-            'telp' => $request->telp,
-            'status' => $request->role
+            'telp'         => $request->telp,
+            'status'       => $request->status
         ]);
 
         return redirect()->route('pengawas.index')->with('success', 'Pengawas has been created!');
@@ -98,23 +98,13 @@ class PengawasController extends Controller
     {
         $pengawas = Petugas::find($id);
         $attributes = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'telp'  => 'required|numeric',
-            'role'  => 'required'
+            'nama_petugas' => 'required',
+            'email'        => 'required',
+            'telp'         => 'required|numeric',
+            'status'       => 'required'
         ]);
-
-        $user = User::create([
-            'name' => $request->nama_petugas,
-            'email' => $request->email,
-            'role'     => $request->role
-        ]);
-        
-        $pengawas = Petugas::create([
-            'nama_petugas' => $request->nama_petugas,
-            'telp' => $request->telp,
-            'status' => $request->role
-        ]);
+        $pengawas->update($attributes);
+        return redirect()->route('pengawas.index')->with('success', 'Pengawas has been updated!');
     }
 
     /**
@@ -125,6 +115,8 @@ class PengawasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // $pengawas = Petugas::find($id);
+        // $pengawas->delete();
+        // return redirect()->route('pengawas.index')->with('success', 'Pengawas has been deleted');
     }
 }

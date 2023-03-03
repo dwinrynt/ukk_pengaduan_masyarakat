@@ -17,8 +17,16 @@ class ReviewPengaduanController extends Controller
      */
     public function index()
     {
-        $pengaduan = Pengaduan::all();
-        return view('petugas.review_pengaduan.index', compact('pengaduan'));
+        $pengaduan  = Pengaduan::where('status', 'proses')->orWhere('status', 'selesai')->get();
+        $verifikasi = Pengaduan::where('status', 'menunggu verifikasi')->get();
+        return view('petugas.review_pengaduan.index', compact('pengaduan', 'verifikasi'));
+    }
+
+    public function verifikasi(Request $request, $id)
+    {
+        $pengaduan = Pengaduan::find($id);
+        $pengaduan->update($request->all());
+        return redirect()->route('review-pengaduan.index')->with('success', 'Pengaduan has been verified!');
     }
 
     /**
@@ -75,7 +83,7 @@ class ReviewPengaduanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pengaduan = Pengaduan::find($id);
+        $pengaduan  = Pengaduan::find($id);
         $attributes = $request->validate([
             'tanggapan'           => 'required',
             'tanggal_tanggapan' => 'required'

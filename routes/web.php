@@ -40,13 +40,10 @@ Route::middleware('role:super_admin')->group(function () {
     Route::resource('/pengawas', PengawasController::class);
 });
 
-Route::middleware(['role:admin|petugas'])->group(function () {
+Route::middleware(['role:petugas,admin'])->group(function () {
     Route::resource('/review-pengaduan', ReviewPengaduanController::class);
+    Route::get('/verifikasi-pengaduan/{id}', [ReviewPengaduanController::class, 'verifikasi'])->name('verifikasi-pengaduan');
 });
-
-// Route::middleware('role:petugas')->group(function () {
-//     // Route::resource('/review-pengaduan', ReviewPengaduanController::class);
-// });
 
 Route::middleware('role:masyarakat')->group(function () {
     Route::resource('/pengaduan', PengaduanController::class);

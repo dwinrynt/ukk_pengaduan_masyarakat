@@ -53,7 +53,7 @@ class KategoriController extends Controller
      */
     public function show(Kategori $kategori)
     {
-        //
+        abort(403);
     }
 
     /**

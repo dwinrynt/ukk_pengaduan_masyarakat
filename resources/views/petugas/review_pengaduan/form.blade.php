@@ -24,7 +24,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="path-foto" class="form-label">Foto</label><br>
-                    <a href="{{ asset('storage/' . $pengaduan->path_foto) }}" class="btn text-white" data-fancybox="gallery{{ $pengaduan->id }}" style="background-color: green; border-radius: 5px;">Lihat Gambar</a>
+                    <a href="{{ asset('storage/' . $pengaduan->path_foto) }}" class="btn text-white" data-fancybox="gallery{{ $pengaduan->id }}" style="background-color: green; border-radius: 5px;"><i class="bi bi-image"></i> Lihat Gambar</a>
                 </div>
                 <div class="mb-3">
                     <label for="tanggal_pengaduan" class="form-label">Tanggal Pengaduan</label>

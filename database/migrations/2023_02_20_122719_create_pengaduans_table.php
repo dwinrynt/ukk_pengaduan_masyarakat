@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('kategori_id');
             $table->longText('laporan');
             $table->string('path_foto')->nullable();
-            $table->enum('status', ['proses', 'selesai'])->default('proses')->nullable();
+            $table->enum('status', ['menunggu verifikasi', 'proses', 'selesai'])->default('menunggu verifikasi')->nullable();
             $table->date('tanggal_pengaduan');
             $table->date('tanggal_tanggapan')->nullable();
             $table->longText('tanggapan')->nullable();

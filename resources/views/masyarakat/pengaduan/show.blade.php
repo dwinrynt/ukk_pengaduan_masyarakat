@@ -6,6 +6,14 @@
         </div>
         <div class="card-body">
             <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" name="nama" id="nama" value="{{ $pengaduan->masyarakat->nama }}" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="nik" class="form-label">NIK</label>
+                <input type="text" class="form-control" name="nik" id="nik" value="{{ $pengaduan->masyarakat->nik }}" disabled>
+            </div>
+            <div class="mb-3">
                 <label for="kategori_id" class="form-label">Nama Kategori</label>
                 <input type="text" class="form-control" name="kategori_id" id="kategori_id" value="{{ $pengaduan->kategori->nama_kategori }}" disabled>
             </div>
@@ -15,11 +23,11 @@
             </div>
             <div class="mb-3">
                 <label for="path-foto" class="form-label">Foto</label><br>
-                <a href="{{ asset('storage/' . $pengaduan->path_foto) }}" class="btn text-white" data-fancybox="gallery{{ $pengaduan->id }}" style="background-color: green; border-radius: 5px;">Lihat Gambar</a>
+                <a href="{{ asset('storage/' . $pengaduan->path_foto) }}" class="btn text-white" data-fancybox="gallery{{ $pengaduan->id }}" style="background-color: green; border-radius: 5px;"><i class="bi bi-image"></i> Lihat Gambar</a>
             </div>
             <div class="mb-3">
                 <label for="tanggapan" class="form-label">Tanggapan</label>
-                <textarea name="tanggapan" id="tanggapan" class="form-control" disabled>{{ $pengaduan->tanggapan }}</textarea>
+                <textarea name="tanggapan" id="tanggapan" class="form-control" disabled>{{ $pengaduan->tanggapan ?? '-' }}</textarea>
             </div>
             <div class="row mb-3">
                 <div class="col-lg-6">
