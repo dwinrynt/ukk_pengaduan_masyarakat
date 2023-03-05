@@ -3,9 +3,14 @@
     <div class="card">
         <div class="card-header bg-white d-flex justify-content-between">
             <h3 class="card-title">Pengaduan Masyarakat</h3>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                {{ (count($verifikasi)) }}<i class="bi bi-bell-fill"></i>
-              </button>
+            <div class="right d-flex justify-content-end gap-3">
+                <form action="{{ route('export-excel') }}">
+                    <button type="submit" class="btn btn-sm btn-success" style="border-radius: 5px; font-weight: 500;"><i class="bi bi-box-arrow-in-down"></i> Export</button>
+                </form>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    {{ (count($verifikasi)) }}<i class="bi bi-bell-fill"></i>
+                </button>
+            </div>
         </div>
         {{-- modal --}}
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

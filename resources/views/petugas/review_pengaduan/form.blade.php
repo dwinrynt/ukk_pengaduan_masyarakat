@@ -8,7 +8,7 @@
             <form action="{{ route('review-pengaduan.update', [$pengaduan->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <input type="hidden" name="petugas_id" id="petugas_id" value="{{ auth()->user()->id }}">
+                <input type="hidden" name="petugas_id" id="petugas_id" value="{{ auth()->user()->petugas->id }}">
                 <input type="hidden" name="status" id="status" value="selesai">
                 <div class="mb-3">
                     <label for="masyarakat_id" class="form-label">Nama</label>

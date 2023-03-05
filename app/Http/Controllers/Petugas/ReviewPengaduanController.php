@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\{
     Pengaduan
 };
+use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExportPengaduan;
 
 class ReviewPengaduanController extends Controller
 {
@@ -104,5 +107,18 @@ class ReviewPengaduanController extends Controller
     public function destroy($id)
     {
         abort(404);
+    }
+
+    public function exportPDF()
+    {
+        $pengaduan = Pengaduan::where('status', 'selesai')->get();
+ 
+    	$pdf = PDF::loadview('petugas.pengaduan_pdf',compact('pengaduan'));
+    	return $pdf->download('pengaduan-pdf.pdf');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new ExportPengaduan, 'pengaduan.xlsx');
     }
 }

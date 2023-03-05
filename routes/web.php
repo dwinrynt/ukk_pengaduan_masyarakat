@@ -43,6 +43,8 @@ Route::middleware('role:super_admin')->group(function () {
 Route::middleware(['role:petugas,admin'])->group(function () {
     Route::resource('/review-pengaduan', ReviewPengaduanController::class);
     Route::get('/verifikasi-pengaduan/{id}', [ReviewPengaduanController::class, 'verifikasi'])->name('verifikasi-pengaduan');
+    Route::get('/export-pdf', [ReviewPengaduanController::class, 'exportPDF'])->name('export-pdf');
+    Route::get('/export-excel', [ReviewPengaduanController::class, 'exportExcel'])->name('export-excel');
 });
 
 Route::middleware('role:masyarakat')->group(function () {
