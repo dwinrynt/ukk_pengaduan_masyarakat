@@ -23,6 +23,14 @@
                 <input type="number" class="form-control" name="telp" id="telp" value="{{ isset($pengawas) ? $pengawas->telp : old('telp') }}">
             </div>
             <div class="mb-3">
+                <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="laki laki">Laki laki</option>
+                    <option value="perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="status" class="form-label">Level</label>
                 <select name="status" id="status" class="form-control">
                     <option value="">Pilih Level</option>

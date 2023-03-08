@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('nama_petugas');
             $table->string('telp');
+            $table->string('jenis_kelamin');
             $table->enum('status', ['admin', 'petugas']);
             $table->timestamps();
         });

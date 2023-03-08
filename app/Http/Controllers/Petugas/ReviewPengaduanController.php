@@ -20,9 +20,10 @@ class ReviewPengaduanController extends Controller
      */
     public function index()
     {
-        $pengaduan  = Pengaduan::where('status', 'proses')->orWhere('status', 'selesai')->get();
         $verifikasi = Pengaduan::where('status', 'menunggu verifikasi')->get();
-        return view('petugas.review_pengaduan.index', compact('pengaduan', 'verifikasi'));
+        $pengaduan  = Pengaduan::where('status', 'proses')->get();
+        $selesai    = Pengaduan::where('status', 'selesai')->get();
+        return view('petugas.review_pengaduan.index', compact('verifikasi', 'pengaduan', 'selesai'));
     }
 
     public function verifikasi(Request $request, $id)

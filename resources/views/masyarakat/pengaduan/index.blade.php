@@ -25,10 +25,14 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->kategori->nama_kategori }}</td>
                             <td>
-                                <a href="{{ asset('storage/' . $row->path_foto) }}" data-fancybox="gallery{{ $row->id }}">
-                                    <img src="{{ asset('storage/' . $row->path_foto) }}" alt=""
-                                        style="object-fit: cover; width: 3rem; height: 3rem; box-shadow: 0 3px 6px #0000001c;" />
-                                </a>
+                                @if ($row->path_foto)
+                                    <a href="{{ asset('storage/' . $row->path_foto) }}" data-fancybox="gallery{{ $row->id }}">
+                                        <img src="{{ asset('storage/' . $row->path_foto) }}" alt=""
+                                            style="object-fit: cover; width: 3rem; height: 3rem; box-shadow: 0 3px 6px #0000001c;" />
+                                    </a>
+                                @else
+                                    -
+                                @endif
                             </td>
                             <td>
                                 @switch($row->status)

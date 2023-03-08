@@ -40,7 +40,7 @@
                 <td>{{ $row->tanggapan }}</td>
                 <td>{{ $row->tanggal_pengaduan }}</td>
                 <td>{{ $row->tanggal_tanggapan }}</td>
-                <td>{{ $row->petugas->id }}</td>
+                <td>{{ $row->petugas->nama_petugas ?? '-' }}</td>
                 </tr>
                 @endforeach
               </tbody>

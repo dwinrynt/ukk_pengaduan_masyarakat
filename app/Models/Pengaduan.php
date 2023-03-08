@@ -18,7 +18,7 @@ class Pengaduan extends Model
 
     public function petugas()
     {
-        return $this->belongsTo(Petugas::class, 'petugas_id');
+        return $this->hasOne(Petugas::class, 'id', 'petugas_id');
     }
 
     public function kategori()

@@ -35,7 +35,7 @@
                                 @method('delete')
                                     <button class="btn btn-sm btn-danger" style="border-radius: 5px;font-weight: 700; min-width: 5rem;">Delete</button>
                                 </form> --}}
-                                <a href="{{ route('pengawas.edit', [$row->id]) }}" class="btn btn-sm btn-primary" style="border-radius: 5px;font-weight: 700; min-width: 5rem;">Update</a>
+                                <a href="{{ route('pengawas.edit', [$row->id]) }}" class="btn btn-sm btn-primary" style="border-radius: 5px;font-weight: 500; min-width: 5rem;">Update</a>
                             </td>
                         </tr>
                         @endforeach
