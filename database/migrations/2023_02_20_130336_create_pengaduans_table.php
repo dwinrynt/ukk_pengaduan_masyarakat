@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('pengaduans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('masyarakat_id');
-            $table->foreignId('petugas_id')->nullable();
-            $table->foreignId('kategori_id');
+            $table->foreignId('masyarakat_id')->constrained();
+            $table->foreignId('petugas_id')->nullable()->constrained();
+            $table->foreignId('kategori_id')->constrained();
             $table->longText('laporan');
             $table->string('path_foto')->nullable();
             $table->enum('status', ['menunggu verifikasi', 'proses', 'selesai'])->default('menunggu verifikasi')->nullable();
