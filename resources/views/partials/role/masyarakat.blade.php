@@ -6,7 +6,7 @@
 </li>
 <li class="nav-item">
   <a class="nav-link" href="{{ route('pengaduan.index') }}">
-    <i class="icon-grid menu-icon"></i>
+    <i class="icon-paper menu-icon"></i>
     <span class="menu-title">Pengaduan</span>
   </a>
 </li>

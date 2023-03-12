@@ -18,7 +18,6 @@
                         @foreach ($kategori as $list)
                             <option value="{{ $list->id }}" {{ isset($pengaduan) ? ($pengaduan->kategori_id == $list->id ? 'selected' : '') : (old('kategori_id') == $list->id ? 'selected' : '') }} class="text-dark">{{ $list->nama_kategori }}</option>
                         @endforeach
-                        {{--  {{ $list->id == (old('kategori_id') || $pengaduan->kategori_id) ? 'selected' : '' }} --}}
                     </select>
                 </div>
                 <div class="mb-3">

@@ -3146,8 +3146,8 @@ p.form-message.success, p.form-message.error {
 /*===== FOOTER FIVE =====*/
 .footer-area {
   background-color: #f4f6f7;
-  padding-top: 90px;
-  padding-bottom: 120px; }
+  /* padding-top: 50px; */
+  padding-bottom: 50px; }
   .footer-area .social li {
     display: inline-block;
     margin: 0 5px; }
@@ -3217,7 +3217,7 @@ p.form-message.success, p.form-message.error {
   height: 45px;
   line-height: 45px;
   border-radius: 5px;
-  background-color: #0067f4;
+  background: #8119D2;
   text-align: center;
   z-index: 99;
   -webkit-transition: all 0.3s ease-out 0s;
@@ -3228,6 +3228,6 @@ p.form-message.success, p.form-message.error {
   display: none; }
   .back-to-top:hover {
     color: #fff;
-    background-color: #0067f4; }
+    background-color: #EC2323; }
 
 /*# sourceMappingURL=style.css.map */

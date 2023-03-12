@@ -44,13 +44,14 @@ class PengawasController extends Controller
             'nama_petugas' => 'required',
             'email'        => 'required',
             'telp'         => 'required|numeric',
-            'status'       => 'required'
+            'status'       => 'required',
+            'password'     => 'required|min:8'
         ]);
 
         $user = User::create([
             'name'     => $request->nama_petugas,
             'email'    => $request->email,
-            'password' => bcrypt('00000000'),
+            'password' => bcrypt($request->password),
             'role'     => $request->status
         ]);
         

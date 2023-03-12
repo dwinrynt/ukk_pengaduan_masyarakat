@@ -51,7 +51,9 @@
                             <td>{{ $row->tanggal_tanggapan ?? '-' }}</td>
                             <td>
                                 <a href="{{ route('pengaduan.show', [$row->id]) }}" class="btn btn-sm btn-primary" style="border-radius: 5px; font-weight: 700; min-width: 5rem;">Show</a>
-                                <a href="{{ route('pengaduan.edit', [$row->id]) }}" class="btn btn-sm btn-warning text-white" style="border-radius: 5px; font-weight: 700; min-width: 5rem;">Update</a>
+                                @if($row->status == 'menunggu verifikasi')
+                                    <a href="{{ route('pengaduan.edit', [$row->id]) }}" class="btn btn-sm btn-warning text-white" style="border-radius: 5px; font-weight: 700; min-width: 5rem;">Update</a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

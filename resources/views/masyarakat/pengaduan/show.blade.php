@@ -2,41 +2,52 @@
 @section('content')
     <div class="card">
         <div class="card-header bg-white">
-            <h3 class="card-title">Form Pengaduan</h3>
+            <h3 class="card-title">Detail Pengaduan</h3>
         </div>
         <div class="card-body">
-            <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" name="nama" id="nama" value="{{ $pengaduan->masyarakat->nama }}" disabled>
-            </div>
-            <div class="mb-3">
-                <label for="nik" class="form-label">NIK</label>
-                <input type="text" class="form-control" name="nik" id="nik" value="{{ $pengaduan->masyarakat->nik }}" disabled>
-            </div>
-            <div class="mb-3">
-                <label for="kategori_id" class="form-label">Nama Kategori</label>
-                <input type="text" class="form-control" name="kategori_id" id="kategori_id" value="{{ $pengaduan->kategori->nama_kategori }}" disabled>
-            </div>
-            <div class="mb-3">
-                <label for="laporan" class="form-label">Laporan</label>
-                <textarea class="form-control" name="laporan" id="laporan" disabled>{{ $pengaduan->laporan }}</textarea>
-            </div>
-            <div class="mb-3">
-                <label for="path-foto" class="form-label">Foto</label><br>
-                <a href="{{ asset('storage/' . $pengaduan->path_foto) }}" class="btn text-white" data-fancybox="gallery{{ $pengaduan->id }}" style="background-color: green; border-radius: 5px;"><i class="bi bi-image"></i> Lihat Gambar</a>
-            </div>
-            <div class="mb-3">
-                <label for="tanggapan" class="form-label">Tanggapan</label>
-                <textarea name="tanggapan" id="tanggapan" class="form-control" disabled>{{ $pengaduan->tanggapan ?? '-' }}</textarea>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-6">
-                    <label for="tanggal_pengaduan" class="form-label">Tanggal Pengaduan</label>
-                    <input type="date" class="form-control" name="tanggal_pengaduan" id="tanggal_pengaduan" value="{{ $pengaduan->tanggal_pengaduan }}" disabled>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="petugas_id" class="form-label" style="min-width: 10rem;">Verifikator</label>:
+                        {{ $pengaduan->petugas->nama_petugas }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label" style="min-width: 10rem;">Nama</label>:
+                        {{ $pengaduan->masyarakat->nama }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="nik" class="form-label" style="min-width: 10rem;">NIK</label>:
+                        {{ $pengaduan->masyarakat->nik }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="kategori_id" class="form-label" style="min-width: 10rem;">Nama Kategori</label>:
+                        {{ $pengaduan->kategori->nama_kategori }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="laporan" class="form-label" style="min-width: 10rem;">Laporan</label>:
+                        {{ $pengaduan->laporan }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggapan" class="form-label" style="min-width: 10rem;">Tanggapan</label>:
+                        {{ $pengaduan->tanggapan ?? '-' }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggal_pengaduan" class="form-label" style="min-width: 10rem;">Tanggal Pengaduan</label>:
+                        {{ $pengaduan->tanggal_pengaduan }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggal_tanggapan" class="form-label" style="min-width: 10rem;">Tanggal Tanggapan</label>:
+                        {{ $pengaduan->tanggal_tanggapan }}
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <label for="tanggal_tanggapan" class="form-label">Tanggal Tanggapan</label>
-                    <input type="date" class="form-control" name="tanggal_tanggapan" id="tanggal_tanggapan" value="{{ $pengaduan->tanggal_tanggapan }}" disabled>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        @if($pengaduan->path_foto)
+                        <img src="{{ asset('storage/' . $pengaduan->path_foto) }}" alt="" style="max-width: 100%; border-radius: 10px;">
+                        @else
+                        <img src="{{ asset('img/noPhoto.jpg') }}" alt="" style="max-width: 70%">
+                        @endif
+                    </div>
                 </div>
             </div>
             <div class="d-flex justify-content-between">

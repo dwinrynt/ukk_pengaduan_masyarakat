@@ -3,11 +3,13 @@
     <div class="card">
         <div class="card-header bg-white d-flex justify-content-between">
             <h3 class="card-title">Pengaduan Masyarakat</h3>
+            @if (auth()->user()->role == 'admin')
             <div class="right d-flex justify-content-end">
                 <form action="{{ route('export-excel') }}" class="p-0">
-                    <button type="submit" class="btn btn-success" style="border-radius: 5px; font-weight: 500;"><i class="bi bi-box-arrow-in-down"></i> Export</button>
+                    <button type="submit" class="btn btn-success"><i class="bi bi-box-arrow-in-down"></i> Export Data Pengajuan</button>
                 </form>
             </div>
+            @endif
         </div>
         {{-- modal --}}
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

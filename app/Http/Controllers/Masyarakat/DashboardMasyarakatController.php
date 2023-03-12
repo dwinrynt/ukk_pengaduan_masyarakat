@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Masyarakat;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Hash;
 
 class DashboardMasyarakatController extends Controller
 {
@@ -82,4 +84,20 @@ class DashboardMasyarakatController extends Controller
     {
         //
     }
+
+    // public function changePassword(Request $request, $id)
+    // {
+    //     dd($request);
+    //     $user = User::find(auth()->user()->id);
+    //     $currentPassword = $user->password;
+    //     if (!Hash::check($request->current_password, $currentPassword)) {
+    //         return back()->with('error_msg', 'Password lama tidak cocok');
+    //     }
+
+    //     // $attributes['password'] = Hash::make($request->password);
+
+    //     $user->update([
+    //         'password' => $request->password
+    //     ]);
+    // }
 }

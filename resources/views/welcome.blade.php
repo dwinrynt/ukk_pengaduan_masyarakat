@@ -30,6 +30,8 @@
     
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
 </head>
 
@@ -64,9 +66,9 @@
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
                        {{-- navbar logo left --}}
-                        <a class="navbar-brand" href="#">
+                        {{-- <a class="navbar-brand" href="#">
                             <img src="assets/images/logo.svg" alt="Logo">
-                        </a>
+                        </a> --}}
                         {{-- dropdown button(mobile view) --}}
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTwo" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="toggler-icon"></span>
@@ -77,7 +79,7 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
                             <ul class="navbar-nav w-100 d-flex justify-content-end">
                                 <li class="nav-item active"><a class="page-scroll" href="#home">home</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#services">Services</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#services">About</a></li>
                             </ul>
                         </div>
                         {{-- login button --}}
@@ -97,32 +99,35 @@
     <!--====== SLIDER PART START ======-->
 
     <section id="home" class="slider_area">
-        <div id="carouselThree" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
+        <div id="carouselThree" class="carousel slide" data-ride="carousel" data-interval="5000">
+            {{-- <ol class="carousel-indicators">
                 <li data-target="#carouselThree" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselThree" data-slide-to="1"></li>
-            </ol>
+            </ol> --}}
 
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/masyarakat2.png') }}" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-md-8">
+                <div class="carousel-item active" style="padding: 5rem;">
+                    <div class="row d-flex align-items-center" style="margin-top: 5rem;">
+                        <div class="col-md d-flex align-items-start" data-aos="fade-right" data-aos-duration="3000">
+                            <h1 class="text-white" style="font-size: 5rem">Pusat Pengaduan Masyarakat</h1>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-left" data-aos-duration="3000">
                             <img src="{{ asset('img/masyarakat2.png') }}" alt="">
                         </div>
                     </div>
                 </div>
+
+                {{-- <div class="carousel-item">
+                    <img src="{{ asset('img/masyarakat2.png') }}" alt="">
+                </div> --}}
             </div>
 
-            <a class="carousel-control-prev" href="#carouselThree" role="button" data-slide="prev">
+            {{-- <a class="carousel-control-prev" href="#carouselThree" role="button" data-slide="prev">
                 <i class="lni lni-arrow-left"></i>
             </a>
             <a class="carousel-control-next" href="#carouselThree" role="button" data-slide="next">
                 <i class="lni lni-arrow-right"></i>
-            </a>
+            </a> --}}
         </div>
     </section>
 
@@ -131,16 +136,21 @@
     <!--====== FEATRES TWO PART START ======-->
 
     <section id="services" class="features-area">
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-duration="2000">
             <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-10">
-                    <div class="section-title text-center pb-10">
-                        <h3 class="title">Our Services</h3>
-                        <p class="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
-                    </div> <!-- row -->
+                <div class="col-md-10">
+                    <div class="section-title text-center pb-5">
+                        <h3 class="title">About</h3>
+                    </div>
                 </div>
-            </div> <!-- row -->
+            </div>
             <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <img src="{{ asset('img/masyarakat.png') }}" alt="">
+                </div>
+                <div class="col-md-6" style="text-align: justify; text-justify: inter-word;">Pusat Pengaduan Masyarakat adalah sistem aplikasi sebagai media pengaduan yang dikelola oleh Pemerintah, agar masyarakat Indonesia dapat melakukan pengaduan terkait masalah-masalah yang berada di negeri ini. Tujuannya agar Pemerintah dapat memperbaiki masalah-masalah pada negeri ini baik yang berada di perkotaan sampai ke desa yang terpencil sekalipun. Sehingga negeri ini bisa menjadi lebih baik lagi kedepannya.</div>
+            </div>
+            {{-- <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-7 col-sm-9">
                     <div class="single-features mt-40">
                         <div class="features-title-icon d-flex justify-content-between">
@@ -154,7 +164,7 @@
                             <p class="text">Short description for the ones who look for something new. Short description for the ones who look for something new.</p>
                             <a class="features-btn" href="#">LEARN MORE</a>
                         </div>
-                    </div> <!-- single features -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-7 col-sm-9">
                     <div class="single-features mt-40">
@@ -169,7 +179,7 @@
                             <p class="text">Short description for the ones who look for something new. Short description for the ones who look for something new.</p>
                             <a class="features-btn" href="#">LEARN MORE</a>
                         </div>
-                    </div> <!-- single features -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-7 col-sm-9">
                     <div class="single-features mt-40">
@@ -184,9 +194,9 @@
                             <p class="text">Short description for the ones who look for something new. Short description for the ones who look for something new.</p>
                             <a class="features-btn" href="#">LEARN MORE</a>
                         </div>
-                    </div> <!-- single features -->
+                    </div>
                 </div>
-            </div> <!-- row -->
+            </div> <!-- row --> --}}
         </div> <!-- container -->
     </section>
 
@@ -194,9 +204,6 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="footer-logo text-center">
-                        <a class="mt-30" href="index.html"><img src="assets/images/logo.svg" alt="Logo"></a>
-                    </div> <!-- footer logo -->
                     <ul class="social text-center mt-60">
                         <li><a href="https://facebook.com/uideckHQ"><i class="lni lni-facebook-filled"></i></a></li>
                         <li><a href="https://twitter.com/uideckHQ"><i class="lni lni-twitter-original"></i></a></li>
@@ -205,11 +212,8 @@
                     </ul> <!-- social -->
                     <div class="footer-support text-center">
                         <span class="number">+8801234567890</span>
-                        <span class="mail">support@uideck.com</span>
+                        <span class="mail">kirimpengaduan@gmail.com</span>
                     </div>
-                    <div class="copyright text-center mt-35">
-                        <p class="text">Designed by <a href="https://uideck.com" rel="nofollow">UIdeck</a> and Built-with <a rel="nofollow" href="https://ayroui.com">Ayro UI</a> </p>
-                    </div> <!--  copyright -->
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
@@ -269,6 +273,11 @@
     
     <!--====== Main js ======-->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
     
 </body>
 
