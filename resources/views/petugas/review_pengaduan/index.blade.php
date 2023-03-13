@@ -5,9 +5,12 @@
             <h3 class="card-title">Pengaduan Masyarakat</h3>
             @if (auth()->user()->role == 'admin')
             <div class="right d-flex justify-content-end">
+                @if(count($pengaduan) > 0)
                 <form action="{{ route('export-excel') }}" class="p-0">
                     <button type="submit" class="btn btn-success"><i class="bi bi-box-arrow-in-down"></i> Export Data Pengajuan</button>
                 </form>
+                @else
+                @endif
             </div>
             @endif
         </div>

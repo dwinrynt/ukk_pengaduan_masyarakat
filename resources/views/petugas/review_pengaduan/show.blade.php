@@ -9,7 +9,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="petugas_id" class="form-label" style="min-width: 10rem;">Verifikator</label>:
-                        {{ $pengaduan->petugas->nama_petugas }}
+                        {{ $pengaduan->petugas->nama_petugas ?? '-' }}
                     </div>
                     <div class="mb-3">
                         <label for="nama" class="form-label" style="min-width: 10rem;">Nama</label>:
@@ -18,6 +18,10 @@
                     <div class="mb-3">
                         <label for="nik" class="form-label" style="min-width: 10rem;">NIK</label>:
                         {{ $pengaduan->masyarakat->nik }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="alamat" class="form-label" style="min-width: 10rem;">Alamat</label>:
+                        {{ $pengaduan->alamat }}
                     </div>
                     <div class="mb-3">
                         <label for="kategori_id" class="form-label" style="min-width: 10rem;">Nama Kategori</label>:
@@ -37,7 +41,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="tanggal_tanggapan" class="form-label" style="min-width: 10rem;">Tanggal Tanggapan</label>:
-                        {{ $pengaduan->tanggal_tanggapan }}
+                        {{ $pengaduan->tanggal_tanggapan ?? '-' }}
                     </div>
                 </div>
                 <div class="col-md-6">

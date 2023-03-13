@@ -42,8 +42,8 @@ class PengawasController extends Controller
     {
         $attributes = $request->validate([
             'nama_petugas' => 'required',
-            'email'        => 'required',
-            'telp'         => 'required|numeric',
+            'email'        => 'required|unique:users',
+            'telp'         => 'required|numeric|unique:petugas',
             'status'       => 'required',
             'password'     => 'required|min:8'
         ]);

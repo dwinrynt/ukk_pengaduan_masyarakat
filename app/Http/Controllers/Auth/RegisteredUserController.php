@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {   
         $request->validate([
-            'nik' => ['required', 'numeric', 'digits:16,16'],
+            'nik' => ['required', 'numeric', 'digits:16,16', 'unique:masyarakats'],
             'telp' => ['required', 'numeric'],
             'name' => ['required', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users'],

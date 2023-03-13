@@ -45,7 +45,8 @@ class PengaduanController extends Controller
             'masyarakat_id'     => 'required',
             'kategori_id'       => 'required',
             'laporan'           => 'required',
-            'path_foto'         => 'image|mimes:png,jpg,jpeg',
+            'path_foto'         => 'image|mimes:png,jpg,jpeg|max:5120',
+            'alamat'            => 'required',
             'tanggal_pengaduan' => 'required'
         ]);
 

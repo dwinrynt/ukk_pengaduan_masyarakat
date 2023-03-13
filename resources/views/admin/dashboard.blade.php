@@ -1,4 +1,5 @@
 @section('content')
+    <h5 class="mb-3">Welcome, {{ auth()->user()->name }}</h5>
     <div class="card">
         <div class="card-header bg-white">
             <h3 class="card-title">Profile</h3>

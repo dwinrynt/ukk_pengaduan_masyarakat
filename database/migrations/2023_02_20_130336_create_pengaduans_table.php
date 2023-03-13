@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('kategori_id')->constrained();
             $table->longText('laporan');
             $table->string('path_foto')->nullable();
+            $table->string('alamat');
             $table->enum('status', ['menunggu verifikasi', 'proses', 'selesai'])->default('menunggu verifikasi')->nullable();
             $table->date('tanggal_pengaduan');
             $table->date('tanggal_tanggapan')->nullable();
